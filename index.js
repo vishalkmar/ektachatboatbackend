@@ -14,13 +14,12 @@ const port = process.env.PORT || 8000
 
 app.use('/api',exrouter);
 
-mongoose.connect(process.env.MONGO_URI)
-.then(()=>{
-     console.log('database is connected sucessfully');
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
-.catch(()=>{
-     console.log('error while connecting db');
-})
+.then(() => console.log("Database connected successfully"))
+.catch((err) => console.log("Error while connecting DB:", err));
 
 app.listen(port,()=>{
       console.log(`app is running on port : ${port}`);
