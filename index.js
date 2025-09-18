@@ -11,12 +11,8 @@ const app = express();
 // Parse JSON
 app.use(bodyparser.json());
 
-// CORS configuration
-app.use(cors({
-    origin: 'https://ektaboat.netlify.app', // only allow your frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true // if you need cookies/auth
-}));
+// FULLY open CORS - allows requests from anywhere
+app.use(cors());
 
 // Routes
 app.use('/api', exrouter);
