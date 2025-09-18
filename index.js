@@ -14,7 +14,7 @@ const port = process.env.PORT || 8000
 
 app.use('/api',exrouter);
 
-mongoose.connect('mongodb://localhost:27017/ektachatbotdb')
+mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
      console.log('database is connected sucessfully');
 })
